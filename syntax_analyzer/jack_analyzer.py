@@ -8,7 +8,7 @@ class JackAnalyzer:
     Class used to analyze jack files and turn them into xml tree structured files.
     """
     def __init__(self):
-        pass
+        self.tokenizer_cls = JackTokenizer()
 
     def open_dir(self):
         """
@@ -29,16 +29,19 @@ class JackAnalyzer:
         """
         Returns tokenized files
         """
+        file_struc = {}
         # Loop over lines in a file
-        for line in file:
+        for index, line in enumerate(file):
             # Get rid of trailing whitespaces
             line_striped = line.strip()
 
             # Check if line doesnt contain code
-            if line_striped.startswith(("//", "/*", "*/")) or len(line_striped) == 0:
+            if line_striped.startswith(("//", "/*", "*/", "*")) or len(line_striped) == 0:
                 continue
             else:
-                token_type = JackTokenizer.token_type(line_striped)
+                token_types = self.tokenizer_cls.tokenize_line(line_striped)
+                file_struc[f"line_num_{index}"] = token_types
+        print(file_struc)
 
 if __name__ == '__main__':
     jack_analyzer_cls = JackAnalyzer()
