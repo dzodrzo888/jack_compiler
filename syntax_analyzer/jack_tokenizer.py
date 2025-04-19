@@ -43,9 +43,9 @@ class JackTokenizer:
         # Add the last token if it exists
         if token:
             token_types.append(self.classify_token(token))
-    
+
         return token_types
-    
+
     def classify_token(self, token: str):
         """
         Classify a token and return its type.
