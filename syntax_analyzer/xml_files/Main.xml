@@ -1,0 +1,56 @@
+<KEYWORD> class </KEYWORD>
+<IDENTIFIER> Main </IDENTIFIER>
+<SYMBOL> { </SYMBOL>
+<subroutineDec>
+<KEYWORD> function </KEYWORD>
+<KEYWORD> void </KEYWORD>
+<IDENTIFIER> main </IDENTIFIER>
+<SYMBOL> ( </SYMBOL>
+<SYMBOL> ) </SYMBOL>
+<SYMBOL> { </SYMBOL>
+<subroutineBody>
+<varDec>
+<KEYWORD> var </KEYWORD>
+<IDENTIFIER> SquareGame </IDENTIFIER>
+<IDENTIFIER> game </IDENTIFIER>
+<SYMBOL> ; </SYMBOL>
+</varDec>
+<statements>
+<letStatement>
+<KEYWORD> let </KEYWORD>
+<IDENTIFIER> game </IDENTIFIER>
+<SYMBOL> = </SYMBOL>
+<IDENTIFIER> game </IDENTIFIER>
+<SYMBOL> ; </SYMBOL>
+</letStatement>
+<letStatement>
+<KEYWORD> let </KEYWORD>
+<IDENTIFIER> cool_str </IDENTIFIER>
+<SYMBOL> = </SYMBOL>
+<STRING_CONST> "coolStr" </STRING_CONST>
+<KEYWORD> do </KEYWORD>
+<IDENTIFIER> game </IDENTIFIER>
+<SYMBOL> . </SYMBOL>
+<IDENTIFIER> run </IDENTIFIER>
+<SYMBOL> ( </SYMBOL>
+<SYMBOL> ) </SYMBOL>
+<SYMBOL> ; </SYMBOL>
+</letStatement>
+<doStatement>
+<KEYWORD> do </KEYWORD>
+<IDENTIFIER> game </IDENTIFIER>
+<SYMBOL> . </SYMBOL>
+<IDENTIFIER> dispose </IDENTIFIER>
+<SYMBOL> ( </SYMBOL>
+<SYMBOL> ) </SYMBOL>
+<SYMBOL> ; </SYMBOL>
+</doStatement>
+<returnStatement>
+<KEYWORD> return </KEYWORD>
+<SYMBOL> ; </SYMBOL>
+</returnStatement>
+</statements>
+<SYMBOL> } </SYMBOL>
+</subroutineBody>
+</subroutineDec>
+<SYMBOL> } </SYMBOL>

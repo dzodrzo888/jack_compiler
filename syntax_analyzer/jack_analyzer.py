@@ -21,21 +21,21 @@ class JackAnalyzer:
         # Define dir
         dir_path = "xml_files"
         self.create_xml_dir(dir_path)
-        # Input dir specified in 2 sys arg
+        # Input dir specified in sys arg
         input_dir = sys.argv[1]
         # Creates paths for the files
         file_paths = [f"{input_dir}/{file_name}" for file_name in os.listdir(input_dir)]
         # Loops over files
-        for file in file_paths[0:1]:
+        for file in file_paths:
             with open(file) as jack_file:
                 # Tokenizes files
                 self.tokenizer(jack_file)
                 file_name = self.get_file_name(file)
                 # Set xml path
                 file_path = f"{dir_path}/{file_name}.xml"
-                # Create xml file
-                xml_file = self.create_xml_file(file_path)
-                self.comp_engine_cls.populate_xml(xml_file, self.file_struc)
+                # Open XML file for writing
+                with open(file_path, "w") as xml_file:
+                    self.comp_engine_cls.populate_xml(xml_file, self.file_struc)
             self.file_struc = []
 
     def create_xml_dir(self, dir_path):

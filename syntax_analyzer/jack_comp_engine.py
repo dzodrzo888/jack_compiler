@@ -15,8 +15,10 @@ class JackCompEngine:
         """
         Entry point for the compilation process.
         """
-        self.token_types = token_types
-        self.curr_token = self.token_types[0]
+        flattened_list = [token for sublist in token_types for token in sublist]
+        print(flattened_list)  # Debug print
+        self.token_types = flattened_list
+        self.curr_token = self.token_types.pop(0) if self.token_types else None
         self.xml_file = xml_file
         self.compile_class()
 
@@ -314,7 +316,11 @@ class JackCompEngine:
         """
         Returns the current token as a (key, value) tuple.
         """
-        return next(iter(self.curr_token.items()))
+        if self.curr_token:
+            key, value = next(iter(self.curr_token.items()))  # Extract the key-value pair
+            return key, value
+        else:
+            raise IndexError("No more tokens available.")
 
     def write_token(self, key, value):
         """
@@ -327,6 +333,6 @@ class JackCompEngine:
         Advances to the next token.
         """
         if self.token_types:
-            self.curr_token = self.token_types.pop(0)
+            self.curr_token = self.token_types.pop(0)  # Set the next token as the current token
         else:
             self.curr_token = None
